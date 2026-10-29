@@ -242,7 +242,7 @@ def export(db_path: str | Path | None = None,
   <header>
     <div>
       <h1>Rekova Sales Command Center</h1>
-      <p>Automated by Airflow + dbt + DuckDB · simulated client, synthetic data · generated {gen_ts} UTC</p>
+      <p>Airflow DAG · dbt · DuckDB · simulated client, synthetic data · generated {gen_ts} UTC</p>
     </div>
     <span class="pill">{dq_pill}</span>
   </header>

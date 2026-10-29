@@ -10,8 +10,9 @@
 > into a scheduled pipeline. CSV lands in a raw schema with a load audit; a Python quality
 > gate quantifies the six known feed defects and blocks the run on null keys or impossible
 > amounts; dbt staging dedupes, types and derives missing net sales; dbt marts build a star
-> schema plus monthly, Pareto and promo marts. Airflow orchestrates it monthly with retries,
-> and dbt tests run at every layer — including a reconciliation test that asserts the
+> schema plus monthly, Pareto and promo marts. I wrote a monthly Airflow DAG with retries
+> and task-level gating; the identical steps run locally and in CI through a thin runner.
+> dbt tests run at every layer — including a reconciliation test that asserts the
 > warehouse still matches the ₹23.42 Cr latest-month revenue, 75% top-5 share and 32.1%
 > e-commerce share from the other two projects. CI rebuilds everything from scratch on
 > every push, runs pytest, and uploads the dashboard and Parquet exports."
@@ -73,7 +74,8 @@
 > **Analytics Data Platform (Airflow, dbt, DuckDB, Python)** — Built a scheduled ELT
 > pipeline for a simulated CPG client: CSV ingestion with load audit, a Python
 > data-quality gate, dbt staging/marts with 54 tests, and automated CSV/Parquet/HTML
-> publishing; orchestrated monthly in Airflow with retries and task-level gating.
+> publishing; authored a monthly Airflow DAG with retries and task-level gating while
+> keeping every step runnable outside the scheduler.
 
 > **Data Quality & Reconciliation** — Quantified six known feed defects (duplicates,
 > missing net sales, returns, orphan keys, whitespace, missing extract); enforced hard

@@ -53,7 +53,7 @@ generator (seeded, 6 defects)
 
 ## 4. Orchestration
 
-The Airflow DAG (`dags/rekova_pipeline.py`) runs monthly with `catchup=False` and
+The Airflow DAG (`dags/rekova_pipeline.py`) is scheduled monthly with `catchup=False` and
 `max_active_runs=1`. Each task is idempotent:
 
 - **Ingest** replaces raw tables and rebuilds the load audit.
