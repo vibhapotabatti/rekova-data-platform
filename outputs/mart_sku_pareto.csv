@@ -1,0 +1,13 @@
+sku_rank,sku_id,sku_name,brand,category,ltm_net_sales,share_pct,cumulative_share_pct
+1,P02,Shieldon Antiseptic Liquid 110 ml,Shieldon,Antiseptics,615185200.25,24.67,24.67
+2,P01,Shieldon Antiseptic Liquid 550 ml,Shieldon,Antiseptics,592121715.51,23.75,48.42
+3,P05,PureGerm Disinfectant Floor Cleaner 975 ml,PureGerm,Disinfectants,224390593.89,9.0,57.42
+4,P04,PureGerm Surface Disinfectant Spray 400 ml,PureGerm,Disinfectants,220163248.0,8.83,66.25
+5,P03,Shieldon Hand Sanitizer 500 ml,Shieldon,Antiseptics,218403482.94,8.76,75.01
+6,P06,FloKleen Toilet Cleaner Pro 1 L,FloKleen,Toilet Care,158104549.0,6.34,81.36
+7,P10,AirPure Air Freshener Spray 250 ml,AirPure,Air Care,115105545.03,4.62,85.97
+8,P11,ThroatEase Lozenges Honey-Lemon 20s,ThroatEase,Cough & Throat,113155884.45,4.54,90.51
+9,P12,ThroatEase Lozenges Sugar-Free 30s,ThroatEase,Cough & Throat,70063815.08,2.81,93.32
+10,P08,Stainex Stain Remover Powder 500 g,Stainex,Fabric Care,67323808.8,2.7,96.02
+11,P07,FloKleen Toilet Cleaner Blue Blocks 4x40 g,FloKleen,Toilet Care,63400052.12,2.54,98.56
+12,P09,Stainex Fabric Whitener 500 ml,Stainex,Fabric Care,35779080.27,1.44,100.0

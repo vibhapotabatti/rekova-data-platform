@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: dim_product
+    columns:
+      - name: sku_id
+        tests: [unique, not_null]
+
+  - name: dim_distributor
+    columns:
+      - name: distributor_id
+        tests: [unique, not_null]
+      - name: region
+        tests: [not_null]
+      - name: channel_type
+        tests:
+          - accepted_values:
+              values: ["General Trade", "Modern Trade", "Pharmacy", "E-commerce"]
+
+  - name: dim_date
+    columns:
+      - name: month_start
+        tests: [unique, not_null]
+      - name: month_key
+        tests: [unique, not_null]
+
+  - name: fct_sellout
+    description: One row per SKU × distributor × month, returns excluded, net sales complete.
+    columns:
+      - name: month_start
+        tests: [not_null]
+      - name: sku_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_product')
+              field: sku_id
+      - name: distributor_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_distributor')
+              field: distributor_id
+      - name: channel_type
+        tests:
+          - accepted_values:
+              values: ["General Trade", "Modern Trade", "Pharmacy", "E-commerce"]
+      - name: net_sales
+        tests: [not_null]
+
+  - name: fct_shipments
+    columns:
+      - name: month_start
+        tests: [not_null]
+      - name: units_shipped
+        tests: [not_null]
+
+  - name: fct_targets
+    columns:
+      - name: month_start
+        tests: [not_null]
+      - name: target_net_sales
+        tests: [not_null]
+
+  - name: mart_monthly_sales
+    columns:
+      - name: month_start
+        tests: [unique, not_null]
+      - name: net_sales
+        tests: [not_null]
+      - name: target_net_sales
+        tests: [not_null]
+
+  - name: mart_sku_pareto
+    columns:
+      - name: sku_id
+        tests: [unique, not_null]
+      - name: sku_rank
+        tests: [unique, not_null]
+
+  - name: mart_promo_effectiveness
+    columns:
+      - name: brand
+        tests: [not_null]
+      - name: channel_type
+        tests: [not_null]

@@ -1,0 +1,39 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate synthetic landing data
+        run: python scripts/generate_data.py
+
+      - name: Run pipeline (ingest, quality gate, dbt build, dbt test, export)
+        run: python scripts/run_pipeline.py --skip-generate
+
+      - name: Run pytest
+        run: pytest -q
+
+      - name: Upload published outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rekova-outputs
+          path: outputs/
+          if-no-files-found: error

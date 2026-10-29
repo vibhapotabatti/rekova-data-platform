@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-10-29T06:38:01",
+  "latest_month": "2026-09-01",
+  "latest_month_net_sales_cr": 23.42,
+  "ltm_net_sales_cr": 249.32,
+  "latest_abs_pct": 2.2,
+  "ecom_share_latest_pct": 32.1,
+  "top5_sku_share_pct": 75.0,
+  "clean_sellout_rows": 7042,
+  "dq_passed": true,
+  "dq_errors": 0,
+  "dq_warnings": 0,
+  "dq_checks_total": 9,
+  "dq_checks_passed": 9
+}

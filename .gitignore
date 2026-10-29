@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.python-version
+data/raw/
+warehouse/
+.pytest_cache/
+logs/
+dbt_project/target/
+dbt_project/dbt_packages/

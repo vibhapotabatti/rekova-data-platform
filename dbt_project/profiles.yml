@@ -1,0 +1,8 @@
+rekova:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('REKOVA_DB', 'warehouse/rekova.duckdb') }}"
+      schema: main
+      threads: 4

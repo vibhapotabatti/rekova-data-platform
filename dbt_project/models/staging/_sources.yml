@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    description: >
+      Landing tables loaded from the seeded CSV feed. Defects are intentionally
+      present here; staging is responsible for cleaning and typing.
+    schema: raw
+    tables:
+      - name: dim_product
+      - name: dim_distributor
+      - name: dim_date
+      - name: fact_sellout_monthly
+      - name: fact_shipments_monthly
+      - name: fact_retail_audit
+      - name: fact_targets

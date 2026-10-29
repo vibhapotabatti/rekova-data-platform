@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Rekova Sales Command Center</title>
+<style>
+:root {
+  --ink: #0f2a33; --muted: #5b6b73; --line: #e3e8ea; --paper: #f5f7f8;
+  --card: #ffffff; --teal: #0f7b6c; --amber: #d97706; --red: #b42318;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding: 28px 20px 48px; }
+header {
+  background: var(--ink); color: #fff; border-radius: 16px;
+  padding: 26px 28px; display: flex; gap: 20px; align-items: flex-start;
+  justify-content: space-between; flex-wrap: wrap;
+}
+header h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: .2px; }
+header p { margin: 0; color: #b9c9cd; font-size: 13.5px; }
+.pill {
+  border: 1px solid rgba(255,255,255,.25); border-radius: 999px;
+  padding: 7px 13px; font-size: 12.5px; color: #d8f3ee; background: rgba(15,123,108,.25);
+}
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin: 18px 0; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 16px 14px;
+}
+.kpi .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: .7px; color: var(--muted); }
+.kpi .value { font-size: 25px; font-weight: 700; margin-top: 7px; font-variant-numeric: tabular-nums; }
+.kpi .sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-top: 14px; }
+.panel h2 { margin: 0 0 4px; font-size: 16px; }
+.panel .hint { margin: 0 0 14px; color: var(--muted); font-size: 12.5px; }
+.two { display: grid; grid-template-columns: 1.15fr .85fr; gap: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; color: var(--muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: .5px; padding: 8px 8px; border-bottom: 1px solid var(--line); }
+td { padding: 9px 8px; border-bottom: 1px solid #f0f3f4; font-variant-numeric: tabular-nums; }
+td.num, th.num { text-align: right; }
+tr:last-child td { border-bottom: 0; }
+.pos { color: var(--teal); font-weight: 600; }
+.neg { color: var(--red); font-weight: 600; }
+footer { color: var(--muted); font-size: 12px; margin-top: 18px; line-height: 1.6; }
+.legend { display: flex; gap: 18px; color: var(--muted); font-size: 12px; margin-top: 6px; }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+@media (max-width: 980px) { .grid { grid-template-columns: repeat(3, 1fr); } .two { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Rekova Sales Command Center</h1>
+      <p>Automated by Airflow + dbt + DuckDB · simulated client, synthetic data · generated 2026-10-29 06:38 UTC</p>
+    </div>
+    <span class="pill">DQ gate: PASSED</span>
+  </header>
+
+  <div class="grid">
+    <div class="card kpi"><div class="label">Latest month</div>
+      <div class="value">₹23.42 Cr</div>
+      <div class="sub">Sep 2026 net sales</div></div>
+    <div class="card kpi"><div class="label">Last 12 months</div>
+      <div class="value">₹249.3 Cr</div>
+      <div class="sub">rolling net sales</div></div>
+    <div class="card kpi"><div class="label">Sales vs target</div>
+      <div class="value pos">+2.2%</div>
+      <div class="sub">latest month (ABS %)</div></div>
+    <div class="card kpi"><div class="label">Top-5 SKU share</div>
+      <div class="value">75.0%</div>
+      <div class="sub">of LTM net sales</div></div>
+    <div class="card kpi"><div class="label">E-commerce share</div>
+      <div class="value">32.1%</div>
+      <div class="sub">latest month</div></div>
+    <div class="card kpi"><div class="label">Quality gate</div>
+      <div class="value">9/9 checks</div>
+      <div class="sub">0 errors · 7,042 clean rows</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Monthly net sales vs target</h2>
+    <p class="hint">Net sales in ₹ Cr. Target line is the sum of the FP&amp;A feed at region × channel grain.</p>
+    <svg viewBox="0 0 1040 310" width="100%" role="img" aria-label="Monthly net sales versus target"><line x1="58" y1="264.0" x2="1014" y2="264.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="268.0" text-anchor="end" font-size="10.5" fill="#7a8a91">0</text><line x1="58" y1="224.0" x2="1014" y2="224.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="228.0" text-anchor="end" font-size="10.5" fill="#7a8a91">5</text><line x1="58" y1="184.0" x2="1014" y2="184.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="188.0" text-anchor="end" font-size="10.5" fill="#7a8a91">10</text><line x1="58" y1="144.0" x2="1014" y2="144.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="148.0" text-anchor="end" font-size="10.5" fill="#7a8a91">15</text><line x1="58" y1="104.0" x2="1014" y2="104.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="108.0" text-anchor="end" font-size="10.5" fill="#7a8a91">20</text><line x1="58" y1="64.0" x2="1014" y2="64.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="68.0" text-anchor="end" font-size="10.5" fill="#7a8a91">25</text><line x1="58" y1="24.0" x2="1014" y2="24.0" stroke="#e8edef" stroke-width="1"/><text x="50" y="28.0" text-anchor="end" font-size="10.5" fill="#7a8a91">30</text><rect x="65.6" y="105.1" width="24.7" height="158.9" rx="2.5" fill="#0f7b6c"><title>Oct 24: Rs 19.86 Cr</title></rect><text x="77.9" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Oct 24</text><rect x="105.4" y="120.7" width="24.7" height="143.3" rx="2.5" fill="#0f7b6c"><title>Nov 24: Rs 17.91 Cr</title></rect><rect x="145.2" y="124.0" width="24.7" height="140.0" rx="2.5" fill="#0f7b6c"><title>Dec 24: Rs 17.50 Cr</title></rect><rect x="185.1" y="113.5" width="24.7" height="150.5" rx="2.5" fill="#0f7b6c"><title>Jan 25: Rs 18.82 Cr</title></rect><text x="197.4" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Jan 25</text><rect x="224.9" y="121.9" width="24.7" height="142.1" rx="2.5" fill="#0f7b6c"><title>Feb 25: Rs 17.77 Cr</title></rect><rect x="264.7" y="131.0" width="24.7" height="133.0" rx="2.5" fill="#0f7b6c"><title>Mar 25: Rs 16.63 Cr</title></rect><rect x="304.6" y="130.1" width="24.7" height="133.9" rx="2.5" fill="#0f7b6c"><title>Apr 25: Rs 16.73 Cr</title></rect><text x="316.9" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Apr 25</text><rect x="344.4" y="129.6" width="24.7" height="134.4" rx="2.5" fill="#0f7b6c"><title>May 25: Rs 16.80 Cr</title></rect><rect x="384.2" y="102.8" width="24.7" height="161.2" rx="2.5" fill="#0f7b6c"><title>Jun 25: Rs 20.15 Cr</title></rect><rect x="424.1" y="87.9" width="24.7" height="176.1" rx="2.5" fill="#0f7b6c"><title>Jul 25: Rs 22.01 Cr</title></rect><text x="436.4" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Jul 25</text><rect x="463.9" y="89.5" width="24.7" height="174.5" rx="2.5" fill="#0f7b6c"><title>Aug 25: Rs 21.82 Cr</title></rect><rect x="503.7" y="95.2" width="24.7" height="168.8" rx="2.5" fill="#0f7b6c"><title>Sep 25: Rs 21.10 Cr</title></rect><rect x="543.6" y="88.1" width="24.7" height="175.9" rx="2.5" fill="#0f7b6c"><title>Oct 25: Rs 21.98 Cr</title></rect><text x="555.9" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Oct 25</text><rect x="583.4" y="99.5" width="24.7" height="164.5" rx="2.5" fill="#0f7b6c"><title>Nov 25: Rs 20.57 Cr</title></rect><rect x="623.2" y="111.2" width="24.7" height="152.8" rx="2.5" fill="#0f7b6c"><title>Dec 25: Rs 19.10 Cr</title></rect><rect x="663.1" y="105.5" width="24.7" height="158.5" rx="2.5" fill="#0f7b6c"><title>Jan 26: Rs 19.81 Cr</title></rect><text x="675.4" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Jan 26</text><rect x="702.9" y="104.2" width="24.7" height="159.8" rx="2.5" fill="#0f7b6c"><title>Feb 26: Rs 19.98 Cr</title></rect><rect x="742.7" y="114.6" width="24.7" height="149.4" rx="2.5" fill="#0f7b6c"><title>Mar 26: Rs 18.67 Cr</title></rect><rect x="782.6" y="115.6" width="24.7" height="148.4" rx="2.5" fill="#0f7b6c"><title>Apr 26: Rs 18.55 Cr</title></rect><text x="794.9" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Apr 26</text><rect x="822.4" y="115.3" width="24.7" height="148.7" rx="2.5" fill="#0f7b6c"><title>May 26: Rs 18.59 Cr</title></rect><rect x="862.2" y="90.4" width="24.7" height="173.6" rx="2.5" fill="#0f7b6c"><title>Jun 26: Rs 21.70 Cr</title></rect><rect x="902.1" y="77.5" width="24.7" height="186.5" rx="2.5" fill="#0f7b6c"><title>Jul 26: Rs 23.32 Cr</title></rect><text x="914.4" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Jul 26</text><rect x="941.9" y="74.9" width="24.7" height="189.1" rx="2.5" fill="#0f7b6c"><title>Aug 26: Rs 23.63 Cr</title></rect><rect x="981.7" y="76.7" width="24.7" height="187.3" rx="2.5" fill="#0f7b6c"><title>Sep 26: Rs 23.42 Cr</title></rect><text x="994.1" y="282" text-anchor="middle" font-size="10.5" fill="#7a8a91">Sep 26</text><polyline points="77.9,101.0 117.8,113.9 157.6,117.5 197.4,114.8 237.2,121.5 277.1,132.5 316.9,127.2 356.8,127.9 396.6,102.3 436.4,87.1 476.3,92.9 516.1,100.6 555.9,96.1 595.8,111.9 635.6,114.7 675.4,100.7 715.2,109.8 755.1,118.7 794.9,121.2 834.8,119.6 874.6,89.0 914.4,75.9 954.2,79.4 994.1,80.7" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"/></svg>
+    <div class="legend">
+      <span><span class="swatch" style="background:#0f7b6c"></span>Net sales</span>
+      <span><span class="swatch" style="background:#d97706"></span>Target</span>
+    </div>
+  </div>
+
+  <div class="two">
+    <div class="panel">
+      <h2>Top SKUs — last 12 months</h2>
+      <p class="hint">Pareto concentration: the first five SKUs carry most of the revenue.</p>
+      <table>
+        <thead><tr><th>#</th><th>SKU</th><th>Brand</th><th class="num">LTM sales</th><th class="num">Share</th><th class="num">Cumulative</th></tr></thead>
+        <tbody><tr><td>1</td><td>Shieldon Antiseptic Liquid 110 ml</td><td>Shieldon</td><td class='num'>₹61.52 Cr</td><td class='num'>24.7%</td><td class='num'>24.7%</td></tr><tr><td>2</td><td>Shieldon Antiseptic Liquid 550 ml</td><td>Shieldon</td><td class='num'>₹59.21 Cr</td><td class='num'>23.8%</td><td class='num'>48.4%</td></tr><tr><td>3</td><td>PureGerm Disinfectant Floor Cleaner 975 ml</td><td>PureGerm</td><td class='num'>₹22.44 Cr</td><td class='num'>9.0%</td><td class='num'>57.4%</td></tr><tr><td>4</td><td>PureGerm Surface Disinfectant Spray 400 ml</td><td>PureGerm</td><td class='num'>₹22.02 Cr</td><td class='num'>8.8%</td><td class='num'>66.2%</td></tr><tr><td>5</td><td>Shieldon Hand Sanitizer 500 ml</td><td>Shieldon</td><td class='num'>₹21.84 Cr</td><td class='num'>8.8%</td><td class='num'>75.0%</td></tr><tr><td>6</td><td>FloKleen Toilet Cleaner Pro 1 L</td><td>FloKleen</td><td class='num'>₹15.81 Cr</td><td class='num'>6.3%</td><td class='num'>81.4%</td></tr></tbody>
+      </table>
+    </div>
+    <div class="panel">
+      <h2>Promo uplift — brand × channel</h2>
+      <p class="hint">Promo months vs base months, last 12 months. Descriptive, not causal.</p>
+      <table>
+        <thead><tr><th>Brand</th><th>Channel</th><th class="num">Uplift</th><th class="num">Promo rows</th></tr></thead>
+        <tbody><tr><td>Stainex</td><td>E-commerce</td><td class='num pos'>+57.8%</td><td class='num'>18</td></tr><tr><td>PureGerm</td><td>General Trade</td><td class='num pos'>+52.0%</td><td class='num'>24</td></tr><tr><td>AirPure</td><td>E-commerce</td><td class='num pos'>+42.6%</td><td class='num'>9</td></tr><tr><td>Stainex</td><td>Modern Trade</td><td class='num pos'>+38.1%</td><td class='num'>36</td></tr><tr><td>PureGerm</td><td>E-commerce</td><td class='num pos'>+37.5%</td><td class='num'>12</td></tr><tr><td>AirPure</td><td>Modern Trade</td><td class='num pos'>+37.2%</td><td class='num'>12</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Generated from <code>marts</code> on every pipeline run. Export formats:
+    <code>mart_monthly_sales</code>, <code>mart_sku_pareto</code>,
+    <code>mart_promo_effectiveness</code> as CSV and Parquet.
+    Client, brands and figures are fictional; no employer data is used.
+  </footer>
+</div>
+</body>
+</html>

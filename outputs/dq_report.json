@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-10-29T06:38:25",
+  "database": "C:\\Users\\rahul\\AppData\\Local\\Temp\\pytest-of-rahul\\pytest-25\\test_quality_gate_matches_know0\\quality.duckdb",
+  "passed": true,
+  "error_count": 0,
+  "warning_count": 0,
+  "checks": [
+    {
+      "name": "sellout_rows_present",
+      "severity": "error",
+      "status": "pass",
+      "value": 7094,
+      "expected": null,
+      "description": "The sell-out feed is not empty."
+    },
+    {
+      "name": "null_business_keys",
+      "severity": "error",
+      "status": "pass",
+      "value": 0,
+      "expected": 0,
+      "description": "No null month/SKU/distributor keys."
+    },
+    {
+      "name": "negative_gross_on_sales",
+      "severity": "error",
+      "status": "pass",
+      "value": 0,
+      "expected": 0,
+      "description": "A positive sale cannot have negative gross value."
+    },
+    {
+      "name": "duplicate_rows",
+      "severity": "warn",
+      "status": "pass",
+      "value": 32,
+      "expected": 32,
+      "description": "Known defect: duplicated sell-out rows to be removed in staging."
+    },
+    {
+      "name": "null_net_sales",
+      "severity": "warn",
+      "status": "pass",
+      "value": 50,
+      "expected": 50,
+      "description": "Known defect: missing net sales to be derived from gross and channel terms."
+    },
+    {
+      "name": "returns_rows",
+      "severity": "warn",
+      "status": "pass",
+      "value": 18,
+      "expected": 18,
+      "description": "Known defect: returns mixed into the sales feed; kept in a separate model."
+    },
+    {
+      "name": "orphan_sku_rows",
+      "severity": "warn",
+      "status": "pass",
+      "value": 2,
+      "expected": 2,
+      "description": "Known defect: sell-out rows pointing at unknown SKUs."
+    },
+    {
+      "name": "region_whitespace",
+      "severity": "warn",
+      "status": "pass",
+      "value": 3,
+      "expected": 3,
+      "description": "Known defect: trailing spaces in distributor region names."
+    },
+    {
+      "name": "missing_month_extract",
+      "severity": "warn",
+      "status": "pass",
+      "value": 0,
+      "expected": 0,
+      "description": "Known defect: one distributor-month extract is absent (Dec 2025, GT05)."
+    }
+  ]
+}

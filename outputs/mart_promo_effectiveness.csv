@@ -1,0 +1,16 @@
+brand,channel_type,promo_avg_units,base_avg_units,uplift_pct,promo_rows,base_rows
+Stainex,E-commerce,7449,4719,57.8,18,54
+PureGerm,General Trade,3383,2226,52.0,24,262
+AirPure,E-commerce,8477,5943,42.6,9,27
+Stainex,Modern Trade,1784,1292,38.1,36,108
+PureGerm,E-commerce,16130,11728,37.5,12,60
+AirPure,Modern Trade,1958,1426,37.2,12,60
+PureGerm,Modern Trade,4393,3286,33.7,36,108
+FloKleen,Modern Trade,3363,2534,32.7,36,108
+FloKleen,General Trade,2721,2100,29.6,48,238
+ThroatEase,E-commerce,17479,13545,29.0,18,54
+Shieldon,E-commerce,34851,27174,28.3,27,81
+ThroatEase,Modern Trade,2284,1849,23.5,36,108
+FloKleen,E-commerce,12495,10357,20.6,12,60
+Shieldon,Modern Trade,15092,12581,20.0,36,180
+Stainex,General Trade,2029,1704,19.1,46,240
